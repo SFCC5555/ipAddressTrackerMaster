@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+:root {
+    --font1:'Rubik', sans-serif;
+
+    --veryDarkGray:0, 0%, 17%;
+    --darkGray:0, 0%, 59%;
+    --white:100,100%,100%;
+    --purple:228, 45%, 44%;
+
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family:var(--font1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headImage {
+    display: inline-block;
+    width: 100%;
+    height: 35%;
+    background-image: url('./images/pattern-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.bodyImage {
+    width: 100%;
+    height: 65%;
+    background-color: grey;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 90%;
+}
+
+h1 {
+    color: hsl(var(--white));
+    font-size: 2.5rem;
+    margin-top: 20px;
+    font-family: var(--font1);
+    font-weight: 400;
+}
+
+.inputContainer {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.iPInput {
+    width: 100%;
+    font-size: 1.8rem;
+    height: 60px;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    color: hsl(var(--veryDarkGray));
+}
+
+.iPInput::placeholder {
+    font-size: 1.3rem;
+    color: hsl(var(--darkGray),50%);
+
+}
+
+.iPInput:focus {
+    border:hsl(var(--darkGray)) solid 1px; 
+    outline-style: none;
+}
+
+
+.iPInput:hover, button:hover {
+    cursor: pointer;
+    opacity: 95%;
+}
+
+
+.iPData {
+    width: 100%;
+    margin-top: 20px;
+    background-color: hsl(var(--white));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    border-radius: 15px;
+
+}
+
+.iPData > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: hsl(var(--veryDarkGray));
+}
+
+
+.iPData span {
+    color: hsl(var(--darkGray));
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+button {
+    width: 50px;
+    height: 60px;
+    border: none;
+    border-radius: 0px 15px 15px 0px;
+    background-color: hsl(var(--veryDarkGray));
+    align-self: flex-end;
+    cursor: pointer;
+    position: absolute;
+    translate: -50px;
+}
+
+
+
+.arrowIcon {
+    display: inline-block;
+    width: 11px;
+    height: 14px;
+    background-image: url(./images/icon-arrow.svg);
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center;
+    position: absolute;
+    top:96%;
+}
+    
+
+.attribution a { 
+    color: hsl(var(--purple)); 
+}

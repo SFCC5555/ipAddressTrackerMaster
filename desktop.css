@@ -1,0 +1,32 @@
+.inputContainer {
+    width: 50%;
+    min-width: 400px;
+}
+
+.iPData {
+    width: 90%;
+    flex-direction: row;
+    padding: 25px 30px;
+    justify-content: space-between;
+    align-items: stretch;
+
+}
+.iPData div {
+    border-right: 1px solid hsl(var(--veryDarkGray),10%);
+    padding: 0px 3%;
+}
+
+.iSP {
+    border: none !important;
+    padding-right: 0px !important;
+}
+
+.iPAddress {
+    padding-left: 0px !important;
+}
+
+.iPData span {
+    width: 100%;
+    text-align: left;
+}
+
