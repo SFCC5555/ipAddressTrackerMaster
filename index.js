@@ -6,9 +6,6 @@ const iPInput = document.querySelector('.iPInput');
 const searchButton = document.querySelector('button');
 
 
-
-
-
 function render() {
 
     fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_SYO8eRj2PEw6hwVg3KcQFC0KNi7I9&ipAddress=${iPInput.value}`)
