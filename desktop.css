@@ -30,3 +30,8 @@
     text-align: left;
 }
 
+
+.leaflet-bar  {
+    display: block
+    
+}

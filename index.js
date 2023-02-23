@@ -4,6 +4,7 @@ const timeZone = document.querySelector('.timeZone');
 const iSP = document.querySelector('.iSP');
 const iPInput = document.querySelector('.iPInput');
 const searchButton = document.querySelector('button');
+const mapContainer = document.querySelector('.mapContainer');
 
 
 function render() {
@@ -12,7 +13,8 @@ function render() {
     .then(response => response.json())
     .then(data => {
 
-    console.log(data)
+    console.log(data);
+
 
     if (data.ip!==undefined) {
 
@@ -21,26 +23,33 @@ function render() {
         timeZone.innerHTML = `<span>TIMEZONE </span>UTC${data.location.timezone}`; 
         iSP.innerHTML = `<span>ISP </span>${data.isp}`;
 
+        mapContainer.innerHTML = "";
+
+        mapContainer.innerHTML = `<div id='map'></div>`
+
+        let map = L.map('map').setView([data.location.lat, data.location.lng], 15);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    
+        let myIcon = L.icon({
+            iconUrl: './images/icon-location.svg',
+            iconSize: [30, 37],
+        });
+    
+        let marker = L.marker([data.location.lat, data.location.lng],{icon: myIcon}).addTo(map);
+
+
+
     } else {
         alert('Invalid IP')
     }
 
-    return new Promise((resolve, reject)=> {
-        if (data) {
-            resolve([data.location.lat,data.location.lng])
-        } else {
-            reject('Unexpected Error')
-        }
-    })
 
 
-
-    })
-    .then(coordinates=>{
-        renderMap(coordinates[0],coordinates[1])
-    })
-    .catch(error=>console.log(error));
-
+})
 }
 
 render();
@@ -64,24 +73,6 @@ function validInput() {
 
 iPInput.addEventListener('keydown',validInput);
 
-//Map
-
-function renderMap(x,y) {
-    let map = L.map('map').setView([x, y], 13);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-    let myIcon = L.icon({
-        iconUrl: './images/icon-location.svg',
-        iconSize: [30, 37],
-    });
-
-    let marker = L.marker([x, y],{icon: myIcon}).addTo(map);
-
-}
 
 
 
